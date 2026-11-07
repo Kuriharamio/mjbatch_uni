@@ -1,11 +1,11 @@
 [build-system]
-requires = ["scikit-build-core>=1.0", "nanobind>=2.2.0", "mujoco==3.11.0"]
+requires = ["scikit-build-core>=1.0", "nanobind>=2.2.0", "mujoco==3.17.0"]
 build-backend = "scikit_build_core.build"
 
 [project]
 name = "mjbatch-uni"
-version = "0.2.5"
-description = "A Python library for running thousands of MuJoCo simulations in parallel on CPU (unilabsim fork)."
+version = "0.2.5.post1"
+description = "MuJoCo 3.17 compatibility fork of the unilabsim CPU batch executor."
 readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
@@ -31,12 +31,13 @@ classifiers = [
   "Topic :: Scientific/Engineering",
 ]
 requires-python = ">=3.10"
-dependencies = ["mujoco==3.11.0", "numpy"]
+dependencies = ["mujoco==3.17.0", "numpy"]
 
 [project.urls]
-Homepage = "https://github.com/unilabsim/mjbatch_uni"
-Repository = "https://github.com/unilabsim/mjbatch_uni"
-Issues = "https://github.com/unilabsim/mjbatch_uni/issues"
+Homepage = "https://github.com/Kuriharamio/mjbatch_uni"
+Repository = "https://github.com/Kuriharamio/mjbatch_uni"
+Upstream = "https://github.com/unilabsim/mjbatch_uni"
+Issues = "https://github.com/Kuriharamio/mjbatch_uni/issues"
 
 [dependency-groups]
 dev = ["pytest", "ruff", "pyright", "nanobind>=2.2.0"]
@@ -85,10 +86,10 @@ test-requires = "pytest"
 test-command = "pytest {project}/tests"
 
 [tool.cibuildwheel.linux]
-repair-wheel-command = "auditwheel repair --exclude libmujoco.so.3.11.0 -w {dest_dir} {wheel}"
+repair-wheel-command = "auditwheel repair --exclude libmujoco.so.3.17.0 -w {dest_dir} {wheel}"
 
 [tool.cibuildwheel.macos]
-repair-wheel-command = "delocate-wheel --ignore-missing-dependencies --exclude libmujoco.3.11.0.dylib --require-archs {delocate_archs} -w {dest_dir} -v {wheel}"
+repair-wheel-command = "delocate-wheel --ignore-missing-dependencies --exclude libmujoco.3.17.0.dylib --require-archs {delocate_archs} -w {dest_dir} -v {wheel}"
 
 [tool.uv.sources]
 # CUDA wheels built against the 12.8 driver on the Linux boxes; PyPI's default torch

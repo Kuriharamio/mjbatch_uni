@@ -1731,9 +1731,9 @@ def test_rays_match_mj_ray(dtype, filtered):
   np.testing.assert_allclose(normal, want[2], atol=tol)
   hit = {model.geom(g).name for g in np.unique(geomid) if g >= 0}
   if filtered:
-    # MuJoCo 3.11 classifies mocap bodies as static for ray filtering, so the
-    # group-0 filter admits only the dynamic box; ball is group 1 and excluded.
-    assert hit == {"box"}
+    # MuJoCo 3.17 classifies the mocap target as non-static for ray filtering;
+    # mjbatch follows mj_ray, while the ball remains excluded by geom group.
+    assert hit == {"box", "target"}
   else:
     assert hit == {"floor", "hills", "wedge", "box", "ball", "target"}
 

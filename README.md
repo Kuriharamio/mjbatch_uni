@@ -1,7 +1,10 @@
 # mjbatch-uni
 
-[![Build](https://img.shields.io/github/actions/workflow/status/unilabsim/mjbatch_uni/ci.yml?branch=main)](https://github.com/unilabsim/mjbatch_uni/actions)
-[![PyPI version](https://img.shields.io/pypi/v/mjbatch-uni)](https://pypi.org/project/mjbatch-uni/)
+[![Build](https://img.shields.io/github/actions/workflow/status/Kuriharamio/mjbatch_uni/ci.yml?branch=feat/mujoco-3.17)](https://github.com/Kuriharamio/mjbatch_uni/actions)
+
+This compatibility fork is based on upstream `unilabsim/mjbatch_uni` release
+`0.2.5` and builds the unchanged native executor against MuJoCo `3.17.0`. Its
+`0.2.5.post1` version is a fork build, not an upstream PyPI release.
 
 `mjbatch-uni` is a Python library for running thousands of MuJoCo simulations in parallel on CPU.
 
